@@ -1,0 +1,29 @@
+{
+  "name": "advent-of-code-2025",
+  "version": "1.0.0",
+  "description": "Advent of Code 2025 Solutions",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "day": "tsx _scripts/run.ts",
+    "new": "tsx _scripts/new.ts"
+  },
+  "keywords": [
+    "advent-of-code",
+    "advent",
+    "2025"
+  ],
+  "author": "Bob Bass <bob@bass.co>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertjbass/advent-of-code-2025.git"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.23.0",
+  "devDependencies": {
+    "@types/node": "^24.10.1"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0"
+  }
+}
