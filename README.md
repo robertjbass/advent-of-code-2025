@@ -6,13 +6,6 @@
 
 My solutions for [Advent of Code 2025](https://adventofcode.com/2025) written in TypeScript.
 
-## 📊 Progress
-
-|    Day     | Part 1 | Part 2 |
-| :--------: | :----: | :----: |
-| [01](./01) |   ⭐   |   ⭐   |
-| [02](./02) |   ⭐   |   ⭐   |
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -42,9 +35,17 @@ pnpm install
 # Run day 1 solution
 pnpm day 1
 
+# Run day 3 part b solution
+pnpm day 3b
+
 # Create day 3 from template
 pnpm new 3
+
+# Create day 4 part b from template
+pnpm new 4b
 ```
+
+Day numbers are zero-padded automatically (e.g., `3b` → `03b`).
 
 ## 📁 Project Structure
 

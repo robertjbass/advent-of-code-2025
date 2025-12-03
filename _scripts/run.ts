@@ -3,7 +3,14 @@
 import { execSync } from "child_process";
 
 let day = process.argv[2];
-day = day.padStart(2, "0");
+
+function padDay(input: string): string {
+  const match = input.match(/^(\d+)(.*)/); // e.g. "4b" -> ["4b", "4", "b"]
+  if (!match) return input;
+  return match[1].padStart(2, "0") + match[2];
+}
+
+day = padDay(day);
 
 if (!day || parseInt(day) < 1 || parseInt(day) > 31) {
   console.error("Usage: pnpm day <day-number> (1-31)");

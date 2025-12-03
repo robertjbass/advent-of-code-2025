@@ -4,6 +4,12 @@ import fs from "fs/promises";
 
 let day = process.argv[2];
 
+function padDay(input: string): string {
+  const match = input.match(/^(\d+)(.*)/); // e.g. "4b" -> ["4b", "4", "b"]
+  if (!match) return input;
+  return match[1].padStart(2, "0") + match[2];
+}
+
 function generateNewFile(day: string) {
   return `#!/usr/bin/env tsx
 
@@ -17,7 +23,7 @@ console.log("Day ${day}");
 const fileToInput = path.resolve(import.meta.dirname, "input.txt");
 // const fileToInput = path.resolve(import.meta.dirname, "example.txt");
 
-const data = await fs.readFile(fileToInput, "utf-8");
+const data = (await fs.readFile(fileToInput, "utf-8")).trim();
 `;
 }
 
@@ -28,7 +34,7 @@ if (!day) {
   const lastDay = parseInt(dirs[dirs.length - 1]);
   day = (lastDay + 1).toString();
 } else {
-  day = day.padStart(2, "0");
+  day = padDay(day);
 
   if (dirs.includes(day)) {
     console.error(`Day ${day} already exists`);

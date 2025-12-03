@@ -1,0 +1,7 @@
+{
+  "windsurf.autocompleteEnabled": false,
+  "codeium.enableCodeLens": false,
+  "codeium.enableConfig": {
+    "*": false
+  }
+}
