@@ -23,11 +23,12 @@ pnpm install
 
 ## 🛠️ Usage
 
-| Command          | Description                                    |
-| ---------------- | ---------------------------------------------- |
-| `pnpm day <day>` | Run a specific day's solution                  |
-| `pnpm new <day>` | Create a new day directory with template files |
-| `pnpm new`       | Create the next day directory                  |
+| Command            | Description                                    |
+| ------------------ | ---------------------------------------------- |
+| `pnpm day <day>`   | Run a specific day's solution                  |
+| `pnpm new <day>`   | Create a new day directory with template files |
+| `pnpm new`         | Create the next day directory                  |
+| `pnpm clone <day>` | Clone day into parts a and b (05 → 05a + 05b)  |
 
 ### Examples
 
@@ -43,6 +44,9 @@ pnpm new 3
 
 # Create day 4 part b from template
 pnpm new 4b
+
+# Clone day 5 into 05a and 05b for part 2
+pnpm clone 5
 ```
 
 Day numbers are zero-padded automatically (e.g., `3b` → `03b`).
@@ -56,10 +60,15 @@ advent-2025/
 │   └── input.txt    # Puzzle input
 ├── 02/              # Day 2 solution
 ├── _scripts/        # Helper scripts
+│   ├── clone.ts     # Clone day into a/b parts
 │   ├── new.ts       # Template generator
 │   └── run.ts       # Solution runner
 └── package.json
 ```
+
+## Get Input:
+
+https://adventofcode.com/2025/day/<day#>/input
 
 ## 📝 License
 

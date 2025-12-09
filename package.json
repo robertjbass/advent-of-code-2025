@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "day": "tsx _scripts/run.ts",
-    "new": "tsx _scripts/new.ts"
+    "new": "tsx _scripts/new.ts",
+    "clone": "tsx _scripts/clone.ts",
+    "format": "prettier --write \"**/*.ts\""
   },
   "keywords": [
     "advent-of-code",
@@ -21,7 +23,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
-    "@types/node": "^24.10.1"
+    "@types/node": "^24.10.1",
+    "prettier": "^3.7.4"
   },
   "dependencies": {
     "tsx": "^4.21.0"

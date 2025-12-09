@@ -1,6 +1,7 @@
 #!/usr/bin/env tsx
 
 // https://adventofcode.com/2025/day/3
+// https://adventofcode.com/2025/day/3/input
 
 import fs from "fs/promises";
 import path from "path";

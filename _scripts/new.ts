@@ -2,7 +2,7 @@
 
 import fs from "fs/promises";
 
-let day = process.argv[2];
+const args = process.argv.slice(2);
 
 function padDay(input: string): string {
   const match = input.match(/^(\d+)(.*)/); // e.g. "4b" -> ["4b", "4", "b"]
@@ -27,24 +27,32 @@ const data = (await fs.readFile(fileToInput, "utf-8")).trim();
 `;
 }
 
-const dirs = (await fs.readdir(".")).filter((item) => /^\d{2}$/.test(item));
-dirs.sort();
-
-if (!day) {
-  const lastDay = parseInt(dirs[dirs.length - 1]);
-  day = (lastDay + 1).toString();
-} else {
-  day = padDay(day);
-
-  if (dirs.includes(day)) {
-    console.error(`Day ${day} already exists`);
-    process.exit(0);
-  }
+async function createDay(day: string) {
+  await fs.mkdir(day, { recursive: true });
+  await fs.writeFile(`${day}/input.txt`, "");
+  await fs.writeFile(`${day}/example.txt`, "");
+  await fs.writeFile(`${day}/index.ts`, generateNewFile(day), {
+    encoding: "utf8",
+  });
+  console.log(`Created day ${day}`);
 }
 
-await fs.mkdir(day, { recursive: true });
-await fs.writeFile(`${day}/input.txt`, "");
-await fs.writeFile(`${day}/example.txt`, "");
-await fs.writeFile(`${day}/index.ts`, generateNewFile(day), {
-  encoding: "utf8",
-});
+const dirs = (await fs.readdir(".")).filter((item) => /^\d{2}/.test(item));
+dirs.sort();
+
+if (args.length === 0) {
+  // No args: create next day
+  const lastDay = parseInt(dirs[dirs.length - 1]);
+  const day = padDay((lastDay + 1).toString());
+  await createDay(day);
+} else {
+  // Process each argument
+  for (const arg of args) {
+    const day = padDay(arg);
+    if (dirs.includes(day)) {
+      console.error(`Day ${day} already exists, skipping`);
+      continue;
+    }
+    await createDay(day);
+  }
+}

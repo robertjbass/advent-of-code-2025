@@ -1,11 +1,12 @@
 #!/usr/bin/env tsx
 
 // https://adventofcode.com/2025/day/1
+// https://adventofcode.com/2025/day/1/input
 
 import fs from "fs/promises";
 import path from "path";
 
-console.log("Day 01");
+console.log("Day 01b");
 
 const fileToInput = path.resolve(import.meta.dirname, "input.txt");
 // const fileToInput = path.resolve(import.meta.dirname, "example.txt");
