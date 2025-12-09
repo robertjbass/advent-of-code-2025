@@ -3,12 +3,12 @@
 // https://adventofcode.com/2025/day/9
 // https://adventofcode.com/2025/day/9/input
 
-import fs from "fs/promises";
-import path from "path";
+import fs from 'fs/promises'
+import path from 'path'
 
-console.log("Day 09a");
+console.log('Day 09a')
 
-const fileToInput = path.resolve(import.meta.dirname, "input.txt");
+const fileToInput = path.resolve(import.meta.dirname, 'input.txt')
 // const fileToInput = path.resolve(import.meta.dirname, "example.txt");
 
-const data = (await fs.readFile(fileToInput, "utf-8")).trim();
+const data = (await fs.readFile(fileToInput, 'utf-8')).trim()
