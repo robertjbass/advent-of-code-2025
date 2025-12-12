@@ -1,4 +1,5 @@
 #!/usr/bin/env tsx
+// TODO
 
 // https://adventofcode.com/2025/day/12
 // https://adventofcode.com/2025/day/12/input
